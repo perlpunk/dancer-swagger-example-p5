@@ -20,7 +20,7 @@ paths:
           schema:
             type: array
             items:
-              $ref: "#/definitions/MenuItem"
+              $ref: "#/definitions/MenuItemShort"
 
   /menu/items/{id}:
     get:
@@ -38,6 +38,7 @@ paths:
             $ref: "#/definitions/MenuItem"
 
 definitions:
+
   MenuItem:
     type: object
     required: [name, category]
@@ -47,5 +48,13 @@ definitions:
       category: { type: string }
       description: { type: string }
       price: { type: integer }
+
+  MenuItemShort:
+    type: object
+    required: [name, category]
+    properties:
+      id: { type: integer }
+      name: { type: string }
+      category: { type: string }
 
 # vim:et:sts=2:sws=2:sw=2:foldmethod=indent
