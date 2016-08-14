@@ -4,7 +4,13 @@
 
 * Plack
 * Dancer2
+* Swagger2
+* File::Share
+* YAML::XS (or YAML::Syck)
 * git clone git@github.com:swagger-api/swagger-ui.git public/swagger-ui
+* https://github.com/dboehmer/Dancer2-Plugin-Swagger2
+  * or, if you have issues with that, use my fork at
+    https://github.com/perlpunk/Dancer2-Plugin-Swagger2 branch patches-2015-08-18
 
 # Usage
 
