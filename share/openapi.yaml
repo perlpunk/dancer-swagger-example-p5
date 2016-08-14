@@ -42,6 +42,7 @@ definitions:
   MenuItem:
     type: object
     required: [name, category]
+    additionalProperties: false
     properties:
       id: { type: integer }
       name: { type: string }
@@ -52,6 +53,7 @@ definitions:
   MenuItemShort:
     type: object
     required: [name, category]
+    additionalProperties: false
     properties:
       id: { type: integer }
       name: { type: string }
