@@ -18,7 +18,14 @@ my @menu = (
         id => 1,
         category => 'main',
         name => 'Chili sin carne',
-        description => '...',
+
+        # Leave out a key completely when it's not defined
+        # (unless you explicitly want that to be a valid value; then you
+        # have to say so in the schema)
+        # Otherwise you will get this error:
+        # "/0/description: Expected string - got null."
+        description => undef,
+
         price => 314,
     },
     {
