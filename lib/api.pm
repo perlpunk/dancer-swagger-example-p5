@@ -11,7 +11,23 @@ our $VERSION = '0.1';
 
 set serializer => 'JSON';
 
-swagger2( url => dist_file('api', 'openapi.yaml') );
+swagger2(
+    url => dist_file('api', 'openapi.yaml'),
+    controller_factory => sub {
+        my ( $method_spec, $http_method, $path, $dsl, $conf, $args, ) = @_;
+        my $op = $method_spec->{operationId};
+        return sub {
+            # validation of input happens before
+
+            # do some error handling, logging, ...
+            my $result = api->$op(@_);
+            $dsl->response->status(200);
+            return $result;
+
+            # validation of output happens after
+        };
+    },
+);
 
 my @menu = (
     {
@@ -31,7 +47,7 @@ my @menu = (
 );
 
 sub get_menu {
-    my ($dsl) = @_;
+    my ($self, $dsl) = @_;
     my $cat = $dsl->request->param('category');
     return [grep {
         not $cat or $_->{category} eq $cat
@@ -44,7 +60,7 @@ sub get_menu {
 }
 
 sub get_menu_item {
-    my ($dsl) = @_;
+    my ($self, $dsl) = @_;
     my $id = $dsl->request->param('id');
     my $item = first {
         $_->{id} == $id
