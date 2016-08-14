@@ -1,0 +1,51 @@
+---
+swagger: "2.0"
+info:
+  title: Restaurant API
+  version: "1.0"
+paths:
+  /menu:
+    get:
+      operationId: get_menu
+      parameters:
+        - name: category
+          in: query
+          required: false
+          type: string
+          enum: [main, drinks]
+
+      responses:
+        200:
+          description: Menu Overview
+          schema:
+            type: array
+            items:
+              $ref: "#/definitions/MenuItem"
+
+  /menu/items/{id}:
+    get:
+      operationId: get_menu_item
+      parameters:
+        - name: id
+          in: path
+          type: integer
+          required: true
+
+      responses:
+        200:
+          description: Menu Item
+          schema:
+            $ref: "#/definitions/MenuItem"
+
+definitions:
+  MenuItem:
+    type: object
+    required: [name, category]
+    properties:
+      id: { type: integer }
+      name: { type: string }
+      category: { type: string }
+      description: { type: string }
+      price: { type: integer }
+
+# vim:et:sts=2:sws=2:sw=2:foldmethod=indent

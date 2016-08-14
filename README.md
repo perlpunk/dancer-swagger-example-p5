@@ -13,3 +13,9 @@
     % GET http://localhost:5000/menu
     % GET http://localhost:5000/menu/items/2
     % GET http://localhost:5000/menu?category=main
+
+# API Documentation
+
+    % share/openapi.yaml
+    % GET http://localhost:5000/openapi.yaml
+
