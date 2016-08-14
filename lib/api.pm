@@ -35,6 +35,11 @@ sub get_menu {
     my $cat = $dsl->request->param('category');
     return [grep {
         not $cat or $_->{category} eq $cat
+    } map {
+        my %short;
+        my @keys = qw/ id category name /;
+        @short{ @keys } = @{ $_ }{ @keys };
+        \%short;
     } @menu];
 }
 
