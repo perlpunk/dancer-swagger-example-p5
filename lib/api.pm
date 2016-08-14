@@ -19,15 +19,7 @@ my @menu = (
         category => 'main',
         name => 'Chili sin carne',
         description => '...',
-
-        # now if you're using MySQL or Sybase, for example, you would
-        # actually get numbers back as strings:
-        price => '314',
-        # The error message will be:
-        # "/0/price: Expected integer - got string."
-        # Fix: If you're using DBIx::Class, you're lucky:
-        # use DBIx::Class::Helper::Row::NumifyGet
-        # Otherwise you have to manually numify
+        price => 314,
     },
     {
         id => 2,
