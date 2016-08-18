@@ -1,3 +1,17 @@
+# What's this repository?
+
+It's supposed to be an example of how to turn a minimalistic
+Perl5 Dancer2 REST API into one that uses OpenAPI (Swagger) for
+documenting and validating input and output.
+
+It uses Dancer2::Plugin::Swagger2 currently. That plugin is still
+experimental and might also be renamed to OpenAPI.
+So the history of this repository might be changed.
+
+If you are using Mojolicious, you can use Mojolicious::Plugin::OpenAPI.
+It's from Jan Henning Thorsen who also wrote JSON::Validator and
+Swagger2, which our port to Dancer2 is using.
+
 # Example for a Perl Dancer2 REST API
 
 # Requirements
